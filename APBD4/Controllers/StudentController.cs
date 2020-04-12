@@ -43,6 +43,7 @@ namespace APBD4.Controllers
                 }
             return Ok(listOfStudents);
         }
+
         [HttpGet("{indexNumber}")]
         public IActionResult GetSemester(string indexNumber)
         {
