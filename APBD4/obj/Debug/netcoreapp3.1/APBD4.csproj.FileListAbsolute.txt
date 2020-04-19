@@ -96,5 +96,10 @@ D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\C#\APBD4\APBD4\APBD4\obj\Debug\netcoreapp3.1\APBD4.csproj.CoreCompileInputs.cache
+D:\C#\APBD4\APBD4\APBD4\obj\Debug\netcoreapp3.1\APBD4.MvcApplicationPartsAssemblyInfo.cs
 D:\C#\APBD4\APBD4\APBD4\obj\Debug\netcoreapp3.1\APBD4.MvcApplicationPartsAssemblyInfo.cache

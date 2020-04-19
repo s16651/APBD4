@@ -1,0 +1,147 @@
+Method: POST
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s222",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: POST
+Query string: ?parameter=parameter
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s222",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/students
+Request body: 
+
+Method: POST
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s222",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: POST
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: POST
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: POST
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/students
+Request body: 
+
+Method: GET
+Query string: 
+Path: /api/students/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/students/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/students
+Request body: 
+
+Method: GET
+Query string: 
+Path: /api/students/secret/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/students/secret/s123
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/enrolment/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+

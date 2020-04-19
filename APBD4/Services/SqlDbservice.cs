@@ -2,9 +2,11 @@
 using APBD4.DTOs.Responses;
 using APBD4.Models;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -101,7 +103,8 @@ namespace APBD4.Services
 							conn.Close();
 							return null;
 						}
-					}index.Close();
+					}
+					index.Close();
 				}
 				using (var comm2 = new SqlCommand())
 				{
@@ -110,7 +113,7 @@ namespace APBD4.Services
 					comm2.Parameters.AddWithValue("IndexNumber1", request.IndexNumber);
 					comm2.Parameters.AddWithValue("@FirstName", request.FirstName);
 					comm2.Parameters.AddWithValue("@LastName", request.LastName);
-						comm2.Parameters.AddWithValue("@BirthDate", DateTime.ParseExact(request.BirthDate, "dd.MM.yyyy", null));
+					comm2.Parameters.AddWithValue("@BirthDate", DateTime.ParseExact(request.BirthDate, "dd.MM.yyyy", null));
 					comm2.Parameters.AddWithValue("@IdEnrollment1", enrollmentId);
 					comm2.Connection = conn;
 					comm2.Transaction = transaction;
@@ -256,6 +259,50 @@ namespace APBD4.Services
 
 					}
 				}
+			}
+		}
+		public Student GetStudentByIndex(string index)
+		{
+			Student st = null;
+			using (var conn = new SqlConnection(connString))
+			{
+				using (var comm = new SqlCommand())
+				{
+					comm.Connection = conn;
+					comm.CommandText = @"select s.FirstName, s.LastName, s.BirthDate, st.Name as Studies, e.Semester
+                                            from Student s
+                                            join Enrollment e on e.IdEnrollment = s.IdEnrollment
+                                            join Studies st on st.IdStudy = e.IdStudy
+                                            where s.IndexNumber=@index;";
+					comm.Parameters.AddWithValue("@index", index);
+					conn.Open();
+					using (var reader = comm.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							st = new Student
+							{
+								FirstName = reader["FirstName"].ToString(),
+								LastName = reader["LastName"].ToString(),
+								DateOfBirth = DateTime.Parse(reader["BirthDate"].ToString()),
+								Studies = reader["Studies"].ToString(),
+								Semester = int.Parse(reader["Semester"].ToString())
+							};
+						}
+					}
+				}
+			}
+			return st;
+		}
+		public void SaveLogData(string method, string query, string path, string body)
+		{
+			using (StreamWriter w = File.AppendText("D:\\C#\\APBD4\\APBD4\\Logs.txt"))
+			{
+				w.WriteLine($"Method: {method}");
+				w.WriteLine($"Query string: {query}");
+				w.WriteLine($"Path: {path}");
+				w.WriteLine($"Request body: {body}");
+				w.WriteLine();
 			}
 		}
 	}

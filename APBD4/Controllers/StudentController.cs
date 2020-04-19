@@ -13,6 +13,7 @@ namespace APBD4.Controllers
     public class StudentController : ControllerBase
     {
         private string connString = @"Data Source=db-mssql;Initial Catalog=s16651;Integrated Security=True";
+        List<Enrollment> list;
         public StudentController() { }
         [HttpGet]
         public IActionResult GetStudents()
@@ -43,7 +44,31 @@ namespace APBD4.Controllers
                 }
             return Ok(listOfStudents);
         }
+        [HttpGet("secret/{index}")]
+        public IActionResult GetStudent(string index)
+        {
+            using (var conn = new SqlConnection(connString))
+            using (var comm = new SqlCommand())
+            {
+                comm.Connection = conn;
+                comm.CommandText = "select Enrollment.IdEnrollment,Enrollment.Semester,Enrollment.IdStudy,Enrollment.StartDate from Enrollment,Student where Student.IdEnrollment=Enrollment.IdEnrollment and Student.IndexNumber=@index";
+                comm.Parameters.AddWithValue("index", index);
+                conn.Open();
+                var dr = comm.ExecuteReader();
+                list = new List<Enrollment>();
+                while (dr.Read())
+                {
+                    var st = new Enrollment();
+                    st.IdEnrollment = Convert.ToInt32(dr["IdEnrollment"]);
+                    st.Semester = (int)dr["Semester"];
+                    st.IdStudy = Convert.ToInt32(dr["IdStudy"]);
+                    st.StartDate = DateTime.Parse(dr["StartDate"].ToString());
+                    list.Add(st);
+                }
 
+            }
+            return Ok(list);
+        }
         [HttpGet("{indexNumber}")]
         public IActionResult GetSemester(string indexNumber)
         {

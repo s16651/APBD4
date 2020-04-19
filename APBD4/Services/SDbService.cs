@@ -15,5 +15,7 @@ namespace APBD4.Services
 		public List<Enrollment> GetStudent(string index);
 		public EnrollStudentResponse EnrollStudent(EnrollStudentRequest request);
 		public PromoteStudentResponse PromoteStudents(PromoteStudentRequest promoteStudentRequest);
+		public Student GetStudentByIndex(string index);
+		public void SaveLogData(string method, string query, string path,string body);
 	}
 }
