@@ -145,3 +145,45 @@ Request body: {
 			"Studies": "Art"
 }
 
+Method: GET
+Query string: 
+Path: /api/students
+Request body: 
+
+Method: GET
+Query string: 
+Path: /favicon.ico
+Request body: 
+
+Method: GET
+Query string: 
+Path: /api/students
+Request body: 
+
+Method: GET
+Query string: 
+Path: /favicon.ico
+Request body: 
+
+Method: GET
+Query string: 
+Path: /api/students/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+
+Method: GET
+Query string: 
+Path: /api/students/
+Request body: {
+			"IndexNumber": "s2224534",
+            "FirstName" : "Jakub",
+            "LastName" :"taf",
+			"BirthDate" :"01.01.1993",
+			"Studies": "Art"
+}
+

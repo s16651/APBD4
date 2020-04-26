@@ -1,5 +1,6 @@
 ﻿using APBD4.DTOs.Requests;
 using APBD4.DTOs.Responses;
+using APBD4.Handlers;
 using APBD4.Models;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
@@ -175,6 +176,34 @@ namespace APBD4.Services
 				return listOfEnrollments;
 			}
 		}
+		public LoginResp Login(LoginRequestDto loginRequest)
+		{
+			using (var client = new SqlConnection(connString))
+			using (var com = new SqlCommand())
+			{
+				com.CommandText = "select * from Salt where saltID=@id";
+				com.Parameters.AddWithValue("id", 1);
+				client.Open();
+				com.Connection = client;
+				var dr = com.ExecuteReader();
+				dr.Read();
+				var saltc = dr["salt"].ToString();
+				loginRequest.password = PasswordGenerator.Create(loginRequest.password, saltc);
+				com.CommandText = "select * from student where Indexnumber=@index and password=@pass";
+				com.Parameters.AddWithValue("pass", loginRequest.password);
+				com.Parameters.AddWithValue("index", loginRequest.login);
+				dr.Close();
+				var dr2 = com.ExecuteReader();
+				if (!dr2.Read())
+				{
+					return null;
+				}
+				var response = new LoginResp();
+				response.login = dr2["IndexNumber"].ToString();
+				response.name = dr2["LastName"].ToString();
+				return response;
+			}
+		}
 		public IEnumerable<Student> GetStudents()
 		{
 			var listOfStudents = new List<Student>();
@@ -203,7 +232,6 @@ namespace APBD4.Services
 							listOfStudents.Add(st);
 						}
 					}
-
 				}
 			}
 			return listOfStudents;
@@ -256,7 +284,6 @@ namespace APBD4.Services
 						reader.Close();
 						transaction.Commit();
 						return promoteStudentResponse;
-
 					}
 				}
 			}
@@ -293,6 +320,43 @@ namespace APBD4.Services
 				}
 			}
 			return st;
+		}
+		public void SaveToken(string login, string name, string token)
+		{
+			using (var client = new SqlConnection(connString))
+			using (var com = new SqlCommand())
+			{
+				client.Open();
+				com.Connection = client;
+				com.CommandText = "insert into RefreshToken (Login,Name,RefreshToken) values (@login,@name,@token)";
+				com.Parameters.AddWithValue("login", login);
+				com.Parameters.AddWithValue("name", name);
+				com.Parameters.AddWithValue("token", token);
+				com.ExecuteNonQuery();
+			}
+		}
+		public TokenResp CheckToken(string token)
+		{
+			using (var client = new SqlConnection(connString))
+			using (var com = new SqlCommand())
+			{
+				client.Open();
+				com.Connection = client;
+				com.CommandText = "select * from RefreshToken where RefreshToken.RefreshToken=@token ";
+				com.Parameters.AddWithValue("token", token);
+				var dr = com.ExecuteReader();
+				if (!dr.Read())
+				{
+					return null;
+				}
+				else
+				{
+					var response = new TokenResp();
+					response.login = dr["Login"].ToString();
+					response.name = dr["Name"].ToString();
+					return response;
+				}
+			}
 		}
 		public void SaveLogData(string method, string query, string path, string body)
 		{

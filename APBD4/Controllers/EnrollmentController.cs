@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using APBD4.DTOs.Requests;
 using APBD4.DTOs.Responses;
 using APBD4.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APBD4.Controllers
 {
     [ApiController]
+    [Authorize(Roles ="employee")]
     [Route("api/enrollment")]
     public class EnrollmentsController : ControllerBase
     {

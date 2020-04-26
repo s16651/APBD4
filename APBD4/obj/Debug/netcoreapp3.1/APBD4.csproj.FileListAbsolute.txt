@@ -100,6 +100,13 @@ D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\C#\APBD4\APBD4\APBD4\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\C#\APBD4\APBD4\APBD4\obj\Debug\netcoreapp3.1\APBD4.csproj.CoreCompileInputs.cache
 D:\C#\APBD4\APBD4\APBD4\obj\Debug\netcoreapp3.1\APBD4.MvcApplicationPartsAssemblyInfo.cs
 D:\C#\APBD4\APBD4\APBD4\obj\Debug\netcoreapp3.1\APBD4.MvcApplicationPartsAssemblyInfo.cache

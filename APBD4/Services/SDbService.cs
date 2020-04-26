@@ -17,5 +17,8 @@ namespace APBD4.Services
 		public PromoteStudentResponse PromoteStudents(PromoteStudentRequest promoteStudentRequest);
 		public Student GetStudentByIndex(string index);
 		public void SaveLogData(string method, string query, string path,string body);
+		public LoginResp Login(LoginRequestDto loginRequest);
+		public void SaveToken(string login, string name, string token);
+		public TokenResp CheckToken(string token);
 	}
 }
